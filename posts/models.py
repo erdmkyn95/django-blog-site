@@ -6,10 +6,18 @@ class Topic(models.Model):
     last_updated = models.DateTimeField(auto_now_add=True)
     starter = models.ForeignKey(User, related_name='topics',on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "{}---{}".format(self.starter.username,self.subject)
+
 class Post(models.Model):
     message = models.TextField(max_length=4000)
+    title = models.CharField(max_length=50,default="",blank=True)
     topic = models.ForeignKey(Topic, related_name='posts',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     created_by = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, null=True, related_name='+',on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return "{}---{}".format(self.created_by.username,self.topic)
