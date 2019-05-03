@@ -1,0 +1,20 @@
+<nav id="menu">
+    <header class="major">
+        <h2>Menu</h2>
+    </header>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="index.html">{{ topic.subject }}</a></li>
+
+        {% endfor %}
+        <li>
+            <span class="opener">Submenu</span>
+            <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
