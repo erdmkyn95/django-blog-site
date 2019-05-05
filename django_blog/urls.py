@@ -20,8 +20,9 @@ from django.conf import settings
 from posts.views import  base_link
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/',base_link),
-    path('post/',include('posts.urls'))
+    path('main/',base_link,name='main'),
+    path('post/',include('posts.urls')),
+    path('users/',include('users.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
